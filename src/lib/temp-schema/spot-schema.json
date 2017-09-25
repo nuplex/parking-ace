@@ -1,0 +1,11 @@
+{
+  "spotId":"",
+  "spotLocation":{
+    "x": 0,
+    "y": 0
+  },
+  "type": "",
+  "assignedTo": "",
+  "potentialAssignees": [],
+  "restriction": ""
+}

@@ -1,0 +1,32 @@
+{
+  "USER_ROLES": {
+    "ADMIN_DAEMON": "admin-daemon",
+    "ADMIN_CREATE": "admin-create",
+    "ADMIN_VIEW": "admin-view",
+    "PARKER": "parker"
+  },
+
+  "SPOT_TYPES": {
+    "LOTTERY": "LL",
+    "FCFS": "FF",
+    "FLEX": "FX",
+    "UNAVAILABLE": "UN",
+    "EXECUTIVE": "EX",
+    "DELIVERY": "DL",
+    "VISITOR": "VS"
+
+  },
+
+  "SPOT_RESTRICTIONS":{
+    "COMPACT": "CM",
+    "HANDICAP": "HC"
+  },
+
+  "VEHICLE_COLOR":["white","gray","black","brown","red","blue","yellow","green","purple","other"],
+  "VEHICLE_TYPE":["motorcycle", "compact", "sub-compact", "compact sedan", "mid-size sedan", "full-size sedan", "coupe",
+    "wagon", "crossover", "mid-size suv", "full-size suv", "van", "pickup", "other"],
+  "VEHICLE_MAKE_MODELS":[
+    {"make":"car", "models":["a","b","c"]},
+    {"make":"rac", "models":["z","x","y"]}
+  ]
+}

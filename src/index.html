@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ParkingAce">
+<head>
+    <meta charset="UTF-8">
+    <title>Optum ParkingAce</title>
+
+    <!-- External Scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <!-- Node -->
+    <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+
+    <!-- General Scripts -->
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script> <!-- here to stop errors -->
+    <script type="text/javascript" src="lib/js/helper.js"></script>
+    <script type="text/javascript" src="lib/js/lot.js"></script>
+    <script type="text/javascript" src="lib/js/constants.js"></script>
+
+    <!-- Controllers -->
+    <script type="text/javascript" src="ctrl/create-lot.js"></script>
+    <script type="text/javascript" src="ctrl/admin-menu.js"></script>
+    <script type="text/javascript" src="ctrl/home.js"></script>
+    <script type="text/javascript" src="ctrl/login.js"></script>
+
+    <!-- Services -->
+    <script type="text/javascript" src="svc/user-service.js"></script>
+    <script type="text/javascript" src="svc/admin-service.js"></script>
+    <script type="text/javascript" src="svc/lot-service.js"></script>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="css/styling.css"/>
+
+</head>
+<body>
+    <home></home>
+</body>
+</html>

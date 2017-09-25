@@ -1,0 +1,32 @@
+<div class="sidebar-subpage">
+    <div class="sidebar-select-cont">
+        <label class="sidebar-select-label">Type</label>
+        <br>
+        <select class="sidebar-select" ng-model="spotType" ng-change="determineSpotClass()">
+            <option ng-repeat="st in spotTypes" value="{{st.value}}">{{st.name}}</option>
+        </select>
+    </div>
+
+    <div class="sidebar-select-cont">
+        <label class="sidebar-select-label">Restriction</label>
+        <br>
+        <select class="sidebar-select" ng-model="spotRestriction" ng-change="determineSpotClass()">
+            <option ng-repeat="sr in spotRestrictions" value="{{sr.value}}">{{sr.name}}</option>
+        </select>
+    </div>
+
+    <div class="sidebar-info-cont">
+        <span class="sidebar-info-label">Spot Preview</span>
+        <div class="sidebar-info spot-preview">
+            <div class="{{previewSpotClass}}">
+                <div class="spot-text-cont">
+                    <span class="spot-text">{{spotRestriction}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-subpage-info">
+        <span class="create-option-info-text"> In Paint Mode, clicking a tile will 'paint' it with the currently selected properties.</span>
+    </div>
+</div>

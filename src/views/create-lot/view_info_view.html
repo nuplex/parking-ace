@@ -1,0 +1,38 @@
+<div class="sidebar-subpage">
+        <div class="sidebar-info-cont" ng-if="editMode">
+            <span class="sidebar-info-label">Spot Code</span>
+            <div class="sidebar-info">
+                <input class="sidebar-input short-length" type="text" ng-model="spotCode" maxlength="3" placeholder="ex. AA1"/>
+            </div>
+        </div>
+
+        <div class="sidebar-info-cont">
+            <span class="sidebar-info-label">Location</span>
+            <div class="sidebar-info">
+                <span class="sidebar-info-text">{{"("+getCurrentSpotX()+", "+getCurrentSpotY()+")"}}</span>
+            </div>
+        </div>
+
+        <div class="sidebar-info-cont">
+            <span class="sidebar-info-label">Type</span>
+            <div class="sidebar-info">
+                <span class="sidebar-info-text">{{getCurrentSpotType()}}</span>
+            </div>
+        </div>
+
+        <div class="sidebar-info-cont">
+            <span class="sidebar-info-label">Restriction</span>
+            <div class="sidebar-info">
+                <span class="sidebar-info-text">{{getCurrentRestriction()}}</span>
+            </div>
+        </div>
+
+        <div class="sidebar-button-cont">
+            <input type="button" class="negative-button" value="Edit Spot" ng-if="!editMode && currentSpot != null" ng-click="goToEditMode()"/>
+            <input type="button" class="standard-button" value="Save Spot" ng-if="editMode && currentSpot != null" ng-click="saveSpot()"/>
+        </div>
+
+    <div class="sidebar-subpage-info">
+        <span class="create-option-info-text"> In View Mode, clicking a tile will show its properties.</span>
+    </div>
+</div>

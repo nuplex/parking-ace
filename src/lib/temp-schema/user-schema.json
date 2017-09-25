@@ -1,0 +1,13 @@
+{
+  "username": "",
+  "firstnName": "",
+  "lastName": "",
+  "password": "",
+  "role": "",
+  "email": "",
+  "phone":"",
+  "parkerId": "",
+  "vehicles": [],
+  "spot": null,
+  "spotPick": []
+}

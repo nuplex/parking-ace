@@ -1,0 +1,27 @@
+<div id="login-cont"></div> <login></login>
+    <div id="login-box">
+        <div id="login-title">
+            <span id="login-title-app-title">ParkingAce</span><span id="login-title-text"> Login</span>
+        </div>
+        <form name="login-entry-form">
+            <div id="login-entry">
+                <div id="login-entry-username">
+                    <span id="login-entry-username-title" class="login-subtitle-text">username</span>
+                    <br>
+                    <input type="text" id="login-entry-username-input" class="login-input" name="username" ng-model="username" required/>
+                </div>
+                <div id="login-entry-passowrd">
+                    <span id="login-entry-password-title" class="login-subtitle-text">password</span>
+                    <br>
+                    <input type="password" id="login-entry-password-input" class="login-input" name="password" ng-model="password" required/>
+                </div>
+            </div>
+            <div id="login-error-cont" ng-show="failed">
+                <span id="login-error">username or password is invalid!</span>
+            </div>
+            <div id="login-submit">
+                <input type="submit" ng-click="signIn()" id="login-submit-button" value="Sign In"/>
+            </div>
+        </form>
+    </div>
+</div>

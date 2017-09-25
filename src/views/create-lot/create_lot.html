@@ -1,0 +1,131 @@
+<div id="create-lot-cont">
+    <!--- Sidebar --->
+    <div id="create-lot-sidebar">
+
+        <div class="title create-title">
+            <div class="main-title">
+                <span class="main-title-text">ParkingAce</span>
+            </div>
+            <div class="sub-title">
+                <span class="sub-title-text">Create Lot</span>
+                <br>
+                <span class="sub-sub-title-text">Editing: {{lot.name}}</span>
+            </div>
+        </div>
+
+        <div class="page-chooser-cont">
+            <div class="page-chooser" ng-click="togglePaintingViewing()">
+                <div class="page-chooser-option-active" id="page-chooser-paint">
+                    <span class="page-chooser-option-text">paint</span>
+                </div><div class="page-chooser-option-inactive" id="page-chooser-view">
+                    <span class="page-chooser-option-text">view</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-hr"></div>
+
+        <!--- Paint View --->
+        <div id="paint-mode" ng-show="showPainting">
+            <div class="sidebar-subpage">
+                <div class="sidebar-select-cont">
+                    <label class="sidebar-select-label">Type</label>
+                    <br>
+                    <select class="sidebar-select" ng-model="spotType" ng-change="determineSpotClass()">
+                        <option ng-repeat="st in spotTypes" value="{{st.value}}">{{st.name}}</option>
+                    </select>
+                </div>
+
+                <div class="sidebar-select-cont" ng-hide="spotType === '' || spotType === 'HN'">
+                    <label class="sidebar-select-label">Restriction</label>
+                    <br>
+                    <select class="sidebar-select" ng-model="spotRestriction" ng-change="determineSpotClass()">
+                        <option ng-repeat="sr in spotRestrictions" value="{{sr.value}}">{{sr.name}}</option>
+                    </select>
+                </div>
+
+                <div class="sidebar-info-cont">
+                    <span class="sidebar-info-label">Spot Preview</span>
+                    <div class="sidebar-info spot-preview">
+                        <div class="{{previewSpotClass}}">
+                            <div class="spot-text-cont">
+                                <span class="spot-text">{{previewRestriction}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-subpage-info">
+                    <span class="create-option-info-text"> In Paint Mode, clicking a tile will 'paint' it with the currently selected properties. Holding down a click will paint multiple cells.</span>
+                </div>
+            </div>
+        </div>
+
+        <!--- View Mode --->
+        <div id="view-mode" ng-show="showViewingInfo">
+            <div class="sidebar-subpage">
+                <div class="sidebar-info-cont" ng-if="editMode">
+                    <span class="sidebar-info-label">Spot Code</span>
+                    <div class="sidebar-info">
+                        <input class="sidebar-input short-length" type="text" ng-model="spotCode" maxlength="3" placeholder="ex. AA1"/>
+                    </div>
+                </div>
+
+                <div class="sidebar-info-cont">
+                    <span class="sidebar-info-label">Location</span>
+                    <div class="sidebar-info">
+                        <span class="sidebar-info-text">{{"("+getCurrentSpotX()+", "+getCurrentSpotY()+")"}}</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-info-cont">
+                    <span class="sidebar-info-label">Type</span>
+                    <div class="sidebar-info">
+                        <span class="sidebar-info-text">{{getCurrentSpotType()}}</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-info-cont">
+                    <span class="sidebar-info-label">Restriction</span>
+                    <div class="sidebar-info">
+                        <span class="sidebar-info-text">{{getCurrentRestriction()}}</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-button-cont">
+                    <input type="button" class="negative-button" value="Edit Spot" ng-if="!editMode && currentSpot != null" ng-click="goToEditMode()"/>
+                    <input type="button" class="standard-button" value="Save Spot" ng-if="editMode && currentSpot != null" ng-click="saveSpot()"/>
+                </div>
+
+                <div class="sidebar-subpage-info">
+                    <span class="create-option-info-text"> In View Mode, clicking a tile will show its properties. You can also add a spot name here, which must be unique.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-hr"></div>
+
+        <div id="create-lot-sidebar-bottom-buttons">
+            <input type="button" class="standard-button" value="save" ng-click=""/><br><input type="button" class="negative-button" value="exit" ng-click="exitCreate()"/>
+        </div>
+    </div>
+
+    <!--- Lot --->
+    <div id="create-lot-grid-box">
+        <div id="create-lot-grid">
+            <div class="lot-row" ng-repeat="row in spots">
+                <div ng-repeat="spot in row" class="{{spot.styleClassesToHTMLClass()+' unselectable'}}" ng-click="transferSpotClick(spot)"
+                    ng-mouseup="removeDragFlag()" ng-mousedown="setDragFlag()" ng-mousemove="dragPaint(spot)">
+                    <div class="spot-text-cont">
+                        <span class="spot-text">{{getSpotText(spot)}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div ng-if="showProcessing" class="processing-overlay">
+   <div class="processing-dot"></div>
+</div>
